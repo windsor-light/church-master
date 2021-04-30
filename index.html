@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>
-        Tailwind Starter Template - Landing Page Template: Tailwind Toolbox
+        Be the Light
     </title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
@@ -17,6 +17,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://raw.githubusercontent.com/LexmarkWeb/csi.js/master/csi.min.js"></script>
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -33,10 +36,8 @@
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div class="pl-4 flex items-center">
             <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-                <!--Icon from: http://www.potlabicons.com/ -->
                 <i class="fas fa-cross"></i>
-                Be The
-                Light
+                Be The Light
             </a>
         </div>
         <div class="block lg:hidden pr-4">
@@ -422,15 +423,54 @@
     </div>
 </section>
 
+<!--rowQ&A-->
 <section class="bg-white border-b py-8">
+    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+        Questions and Answers
+    </h1>
+    <div id="faith-level" class="container text-gray-800 text-center py-5 text-3xl gradient my-10">
+        <i class="pr-7 font-bold text-gray-50 underline">You are</i>
+        <label class="radio-inline pr-2">
+            <input type="radio" name="faith-level" value="1">
+            &nbsp;
+            Non Christian
+        </label>
+        
+        <label class="radio-inline pr-2">
+            <input type="radio" name="faith-level" value="2">
+            &nbsp;
+            New Christian
+        </label>
+        <label class="radio-inline pr-2">
+            <input type="radio" name="faith-level" value="3">
+            &nbsp;
+            Faithful Christian
+        </label>
+        <label class="radio-inline pr-2">
+            <input type="radio" name="faith-level" value="3">
+            &nbsp;
+            Christian Leader
+        </label>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            $('input[name=faith-level]').change(
+                function () {
+                    let l = $(this).val();
+                    $('div[level=' + l + ']').toggle();
+                }
+            );
+        });
+    </script>
+    
+    <div class="w-full mb-4">
+        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+    </div>
+    
     <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Questions and Answers
-        </h1>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
+        
+        <div level="1" class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
             <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden ">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
@@ -455,7 +495,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
+        <div level="2" class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
             <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden ">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
@@ -481,7 +521,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
+        <div level="3" class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
             <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden ">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
@@ -507,7 +547,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
+        <div level="1" class="w-full md:w-1/3 p-6 flex flex-col flex-shrink">
             <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden ">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
@@ -587,10 +627,12 @@
         </div>
     </div>
 </section>
+
+<!--rowGodVsNeighbour-->
 <section class="bg-gray-100 py-8">
     <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
         <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Love God vs Loving Neighbour
+            Greatest Commandment
         </h1>
         <div class="w-full mb-4">
             <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -655,83 +697,56 @@
         </g>
     </g>
 </svg>
-<!--Footer-->
+<!--rowFooter-->
 <footer class="bg-white">
     <div class="container mx-auto px-8">
         <div class="w-full flex flex-col md:flex-row py-6">
             <div class="flex-1 mb-6 text-black">
                 <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
                     <!--Icon from: http://www.potlabicons.com/ -->
-                    <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
-                        <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)"/>
-                        <path
-                                class="plane-take-off"
-                                d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-                        />
-                    </svg>
-                    LANDING
+                    <i class="fas fa-cross"></i>
+                    Be the Light
                 </a>
             </div>
             <div class="flex-1">
-                <p class="uppercase text-gray-500 md:mb-6">Links</p>
+                <p class="uppercase text-gray-500 md:mb-6">The Call to Open</p>
                 <ul class="list-reset mb-6">
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
+                        <a target="_blank" href="https://www.biblegateway.com/passage/?search=Matthew%205%3A14-16&version=NIV"
+                           class="no-underline hover:underline text-gray-800 hover:text-pink-500">Matthew 5:14
+                        </a>
                     </li>
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
+                        <a target="_blank" href="https://www.biblegateway.com/passage/?search=Matthew+25%3A40&version=NIV"
+                           class="no-underline hover:underline text-gray-800 hover:text-pink-500">Matthew 25:40
+                        </a>
                     </li>
                 </ul>
             </div>
             <div class="flex-1">
-                <p class="uppercase text-gray-500 md:mb-6">Legal</p>
+                <p class="uppercase text-gray-500 md:mb-6">Authority in King Jesus</p>
+                <ul class="list-reset mb-6">
+                </ul>
+            </div>
+            <div class="flex-1">
+                <p class="uppercase text-gray-500 md:mb-6">Leveraging Technology</p>
                 <ul class="list-reset mb-6">
                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
+                        <a target="_blank" href="https://www.biblegateway.com/passage/?search=Matthew%2025%3A14-30&version=NLT" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Matthew 25:14-30</a>
                     </li>
                 </ul>
             </div>
             <div class="flex-1">
-                <p class="uppercase text-gray-500 md:mb-6">Social</p>
+                <p class="uppercase text-gray-500 md:mb-6">Heavenly Citizenship</p>
                 <ul class="list-reset mb-6">
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Facebook</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Linkedin</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Twitter</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-1">
-                <p class="uppercase text-gray-500 md:mb-6">Company</p>
-                <ul class="list-reset mb-6">
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
-                    </li>
-                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
-                    </li>
+                
                 </ul>
             </div>
         </div>
     </div>
     <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500">Background vector created by freepik - www.freepik.com</a>
 </footer>
-<!-- jQuery if you need it
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
--->
+
 <script>
     var scrollpos = window.scrollY;
     var header = document.getElementById("header");
@@ -777,9 +792,6 @@
     });
 </script>
 <script>
-    /*Toggle dropdown list*/
-    /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
     var navMenuDiv = document.getElementById("nav-content");
     var navMenu = document.getElementById("nav-toggle");
 
